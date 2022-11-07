@@ -6,6 +6,8 @@ const quantityInput = document.getElementById('quantity')
 const cartContainer = document.getElementById('cart-container')
 const cartItemsList = document.getElementById('cart-items-list')
 const quantityTag = document.getElementById('quantity-tag')
+const checkoutBtn=document.getElementById('btn-checkout')
+const emptyCartMessage=document.getElementById('empty-cart-message')
 const productPrice = 250;
 const discountPercentage = 50;
 let currentImageIndex = 0
@@ -55,8 +57,9 @@ function changeQuantity(amount) {
 }
 updateButtonsState()
 function removeItem(e) {
-    quantity = 0
+    cartQuantity = 0
     e.stopPropagation()
+    render()
     console.log(e)
 }
 function render() {
@@ -82,9 +85,7 @@ function render() {
                 currency: 'USD',
               })}</span>
           </div>
-
         </div>
-
         <button onclick="removeItem(event)" class="cart-remove-item"><img src="images/icon-delete.svg"></button>
       </li>`
     }
@@ -92,8 +93,14 @@ function render() {
     if (cartQuantity > 0) {
         quantityTag.textContent = cartQuantity
         quantityTag.style.display = 'inline'
+        checkoutBtn.style.display='inline-block'
+        emptyCartMessage.style.display='none'
     }
-    else quantityTag.style.display = 'none'
+    else {
+        quantityTag.style.display = 'none'
+        checkoutBtn.style.display='none'
+        emptyCartMessage.style.display='block'
+    }
 
 }
 function showCart() {
