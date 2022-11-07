@@ -33,7 +33,10 @@
       </button>
       <img alt="logo" class="logo" src="images/logo.svg" />
       <div class="right-wrapper">
-        <img alt="cart icon" class="cart" src="images/icon-cart.svg" />
+        <div class="cart-icon-wrapper">
+          <span class="cart-icon-quantity-tag" id="quantity-tag">3</span>
+          <img alt="cart icon" onclick="showCart()" class="cart-icon" src="images/icon-cart.svg" />
+        </div>
         <img alt="avatar" class="avatar" src="images/image-avatar.png" />
       </div>
     </div>
@@ -83,13 +86,34 @@
           <span class="original-price">$250.00</span>
         </div>
         <div class="quantity-selector">
-          <button><img></button>
-          <span>0</span>
-          <button><img></button>
+          <button class="quantity-button" onclick="changeQuantity(-1)" title="Decrease quantity"><img
+              src="images/icon-minus.svg"></button>
+          <input name="quantity" id="quantity" title="quantity" placeholder="0" type="number" value="0">
+          <button class="quantity-button" onclick="changeQuantity(1)" title="Decrease quantity"><img
+              src="images/icon-plus.svg"></button>
         </div>
-        <button>  Add to cart</button>
+        <button id="add-to-cart" onclick="addToCart()" class="btn-add-to-cart">
+          <img src="images/icon-cart.svg">
+          <span>Add to cart</span> </button>
       </div>
     </article>
+    <div class="cart-container" id="cart-container" onclick="hideCart()">
+
+      <div class="cart">
+        <h1 class="cart-title">Cart</h1>
+        <div class="cart-items">
+          <ul class="cart-items-list" id="cart-items-list">
+            
+          </ul>
+        </div>
+        <div class="cart-checkout">
+
+          <button type="button" class="btn-checkout">
+            Checkout
+          </button>
+        </sdiv>
+      </div>
+    </div>
   </main>
 
 
