@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-bar">
+      <button type="button" onclick="toggleNav()" class="open-nav">
+        <img alt="Hamburger icon" class="menu-toggle" src="images/icon-menu.svg" />
+      </button>
+      <img alt="logo" class="logo" src="images/logo.svg" />
+      <div class="right-wrapper">
+        <img alt="cart icon" class="cart" src="images/icon-cart.svg" />
+        <img alt="avatar" class="avatar" src="images/image-avatar.png" />
+      </div>
+    </div>
+    <nav id="main-nav">
+      <div class="nav-inner-wrapper">
+        <button type="button" onclick="toggleNav()" title="Close navigation" class="close-nav">
+          <img src="images/icon-close.svg">
+        </button>
+        <ul>
+          <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="product-carousel">
+
+      <img class="product-image current" src="images/image-product-1.jpg" alt="beige sneakers">
+      <img class="product-image" src="images/image-product-2.jpg" alt="beige sneakers">
+      <img class="product-image" src="images/image-product-3.jpg" alt="beige sneakers">
+      <img class="product-image" src="images/image-product-4.jpg" alt="beige sneakers">
+
+      <div class="controls-wrapper">
+        <button type="button" id="btn-prev" class="switch-image prev" onclick="showPrevImage()">
+          <img src="images/icon-previous.svg" alt="left chevron icon">
+        </button>
+        <button type="button" id="btn-next" class="switch-image next" onclick="showNextImage()">
+          <img src="images/icon-next.svg" alt="right chevron icon">
+        </button>
+      </div>
+    </div>
+    <article class="product-description">
+      <span class="brand">Sneaker Company</span>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p>
+        These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+      <div class="pricing">
+        <div class="pricing-details">
+          <span class="price">$125.00</span>
+          <span class="discount">50%</span>
+          <span class="original-price">$250.00</span>
+        </div>
+        <div class="quantity-selector">
+          <button><img></button>
+          <span>0</span>
+          <button><img></button>
+        </div>
+        <button>  Add to cart</button>
+      </div>
+    </article>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script src="scripts.js" type="text/javascript"></script>
+</body>
+
+</html>
