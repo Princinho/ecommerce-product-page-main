@@ -32,6 +32,20 @@
         <img alt="Hamburger icon" class="menu-toggle" src="images/icon-menu.svg" />
       </button>
       <img alt="logo" class="logo" src="images/logo.svg" />
+      <nav id="main-nav">
+        <div class="nav-inner-wrapper">
+          <button type="button" onclick="toggleNav()" title="Close navigation" class="close-nav">
+            <img src="images/icon-close.svg">
+          </button>
+          <ul>
+            <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
       <div class="right-wrapper">
         <div class="cart-icon-wrapper">
           <span class="cart-icon-quantity-tag" id="quantity-tag">3</span>
@@ -40,20 +54,7 @@
         <img alt="avatar" class="avatar" src="images/image-avatar.png" />
       </div>
     </div>
-    <nav id="main-nav">
-      <div class="nav-inner-wrapper">
-        <button type="button" onclick="toggleNav()" title="Close navigation" class="close-nav">
-          <img src="images/icon-close.svg">
-        </button>
-        <ul>
-          <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+    
   </header>
   <main>
     <div class="product-carousel">
@@ -85,16 +86,19 @@
           <span class="discount">50%</span>
           <span class="original-price">$250.00</span>
         </div>
-        <div class="quantity-selector">
-          <button class="quantity-button" onclick="changeQuantity(-1)" title="Decrease quantity"><img
-              src="images/icon-minus.svg"></button>
-          <input name="quantity" id="quantity" title="quantity" placeholder="0" type="number" value="0">
-          <button class="quantity-button" onclick="changeQuantity(1)" title="Decrease quantity"><img
-              src="images/icon-plus.svg"></button>
+        <div class="quantity-controls-wrapper">
+          <div class="quantity-selector">
+            <button class="quantity-button" onclick="changeQuantity(-1)" title="Decrease quantity"><img
+                src="images/icon-minus.svg"></button>
+            <input name="quantity" id="quantity" title="quantity" placeholder="0" type="number" value="0">
+            <button class="quantity-button" onclick="changeQuantity(1)" title="Decrease quantity"><img
+                src="images/icon-plus.svg"></button>
+          </div>
+          <button id="add-to-cart" onclick="addToCart()" class="btn-add-to-cart">
+            <img src="images/icon-cart.svg">
+            <span>Add to cart</span> </button>
         </div>
-        <button id="add-to-cart" onclick="addToCart()" class="btn-add-to-cart">
-          <img src="images/icon-cart.svg">
-          <span>Add to cart</span> </button>
+        
       </div>
     </article>
     <div class="cart-container" id="cart-container" onclick="hideCart()">
@@ -129,7 +133,7 @@
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Gatien GNAKOU-EJDAMBO</a>.
+    Coded by <a href="https://gatien-gnakou.netlify.app/">Gatien GNAKOU-EJDAMBO</a>.
   </div>
   <script src="scripts.js" type="text/javascript"></script>
 </body>
