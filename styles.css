@@ -244,6 +244,7 @@ nav ul {
 
 .cart-icon-wrapper{
     position: relative;
+    cursor: pointer;
 }
 .cart-icon-quantity-tag{
     position: absolute;
