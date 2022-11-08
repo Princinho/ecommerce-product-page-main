@@ -26,120 +26,150 @@
 </head>
 
 <body>
-  <header>
-    <div class="nav-bar">
-      <button type="button" onclick="toggleNav()" class="open-nav">
-        <img alt="Hamburger icon" class="menu-toggle" src="images/icon-menu.svg" />
-      </button>
-      <img alt="logo" class="logo" src="images/logo.svg" />
-      <nav id="main-nav">
-        <div class="nav-inner-wrapper">
-          <button type="button" onclick="toggleNav()" title="Close navigation" class="close-nav">
-            <img src="images/icon-close.svg">
-          </button>
-          <ul>
-            <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="right-wrapper">
-        <div class="cart-icon-wrapper">
-          <span class="cart-icon-quantity-tag" id="quantity-tag">3</span>
-          <img alt="cart icon" onclick="showCart()" class="cart-icon" src="images/icon-cart.svg" />
-        </div>
-        <img alt="avatar" class="avatar" src="images/image-avatar.png" />
-      </div>
-    </div>
-    
-  </header>
-  <main>
-    <div class="product-carousel">
-      <div class="carousel-images-wrapper">
-        <img class="product-image current" src="images/image-product-1.jpg" alt="beige sneakers">
-        <img class="product-image" src="images/image-product-2.jpg" alt="beige sneakers">
-        <img class="product-image" src="images/image-product-3.jpg" alt="beige sneakers">
-        <img class="product-image" src="images/image-product-4.jpg" alt="beige sneakers">
-      </div>
-      <div class="image-thumbnails">
-        <img class="product-thumbnail current" src="images/image-product-1-thumbnail.jpg" alt="beige sneakers">
-        <img class="product-thumbnail" src="images/image-product-2-thumbnail.jpg" alt="beige sneakers">
-        <img class="product-thumbnail" src="images/image-product-3-thumbnail.jpg" alt="beige sneakers">
-        <img class="product-thumbnail" src="images/image-product-4-thumbnail.jpg" alt="beige sneakers">
-      </div>
-      <div class="controls-wrapper">
-        <button type="button" id="btn-prev" class="switch-image prev" onclick="showPrevImage()">
-          <img src="images/icon-previous.svg" alt="left chevron icon">
+  <div class="container">
+    <header>
+      <div class="nav-bar">
+        <button type="button" onclick="toggleNav()" class="open-nav">
+          <img alt="Hamburger icon" class="menu-toggle" src="images/icon-menu.svg" />
         </button>
-        <button type="button" id="btn-next" class="switch-image next" onclick="showNextImage()">
-          <img src="images/icon-next.svg" alt="right chevron icon">
-        </button>
-      </div>
-    </div>
-    <article class="product-description">
-      <span class="brand">Sneaker Company</span>
-      <h1>Fall Limited Edition Sneakers</h1>
-      <p>
-        These low-profile sneakers are your perfect casual wear companion. Featuring a
-        durable rubber outer sole, they’ll withstand everything the weather can offer.
-      </p>
-      <div class="pricing">
-        <div class="pricing-details">
-          <span class="price">$125.00</span>
-          <span class="discount">50%</span>
-          <span class="original-price">$250.00</span>
-        </div>
-        <div class="quantity-controls-wrapper">
-          <div class="quantity-selector">
-            <button class="quantity-button" onclick="changeQuantity(-1)" title="Decrease quantity"><img
-                src="images/icon-minus.svg"></button>
-            <input name="quantity" id="quantity" title="quantity" placeholder="0" type="number" value="0">
-            <button class="quantity-button" onclick="changeQuantity(1)" title="Decrease quantity"><img
-                src="images/icon-plus.svg"></button>
+        <img alt="logo" class="logo" src="images/logo.svg" />
+        <nav id="main-nav">
+          <div class="nav-inner-wrapper">
+            <button type="button" onclick="toggleNav()" title="Close navigation" class="close-nav">
+              <img src="images/icon-close.svg">
+            </button>
+            <ul>
+              <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
           </div>
-          <button id="add-to-cart" onclick="addToCart()" class="btn-add-to-cart">
-            <img src="images/icon-cart.svg">
-            <span>Add to cart</span> </button>
+        </nav>
+        <div class="right-wrapper">
+          <div class="cart-icon-wrapper">
+            <span class="cart-icon-quantity-tag" id="quantity-tag">3</span>
+            <img alt="cart icon" onclick="showCart()" class="cart-icon" src="images/icon-cart.svg" />
+          </div>
+          <img alt="avatar" class="avatar" src="images/image-avatar.png" />
         </div>
-        
       </div>
-    </article>
-    <div class="cart-container" id="cart-container" onclick="hideCart()">
 
-      <div class="cart">
-        <h1 class="cart-title">Cart</h1>
-        <div class="cart-items">
-          <h3 id="empty-cart-message" class="empty-cart-message">Your cart is empty</h3>
-          <ul class="cart-items-list" id="cart-items-list">
-            
-          </ul>
+    </header>
+    <main>
+      <div class="product-carousel main-carousel">
+        <div class="carousel-images-wrapper">
+          <img class="product-image current" src="images/image-product-1.jpg" alt="beige sneakers">
+          <img class="product-image" src="images/image-product-2.jpg" alt="beige sneakers">
+          <img class="product-image" src="images/image-product-3.jpg" alt="beige sneakers">
+          <img class="product-image" src="images/image-product-4.jpg" alt="beige sneakers">
         </div>
-        <div class="cart-checkout">
-
-          <button type="button" id="btn-checkout" class="btn-checkout">
-            Checkout
+        <div class="image-thumbnails">
+          <img class="product-thumbnail current" src="images/image-product-1-thumbnail.jpg" alt="beige sneakers">
+          <img class="product-thumbnail" src="images/image-product-2-thumbnail.jpg" alt="beige sneakers">
+          <img class="product-thumbnail" src="images/image-product-3-thumbnail.jpg" alt="beige sneakers">
+          <img class="product-thumbnail" src="images/image-product-4-thumbnail.jpg" alt="beige sneakers">
+        </div>
+        <div class="controls-wrapper">
+          <button type="button" id="btn-prev" class="switch-image prev" onclick="showPrevImage()">
+            <img src="images/icon-previous.svg" alt="left chevron icon">
           </button>
-        </sdiv>
+          <button type="button" id="btn-next" class="switch-image next" onclick="showNextImage()">
+            <img src="images/icon-next.svg" alt="right chevron icon">
+          </button>
+        </div>
       </div>
+      <article class="product-description">
+        <span class="brand">Sneaker Company</span>
+        <h1>Fall Limited Edition Sneakers</h1>
+        <p>
+          These low-profile sneakers are your perfect casual wear companion. Featuring a
+          durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+        <div class="pricing">
+          <div class="pricing-details">
+            <span class="price">$125.00</span>
+            <span class="discount">50%</span>
+            <span class="original-price">$250.00</span>
+          </div>
+          <div class="quantity-controls-wrapper">
+            <div class="quantity-selector">
+              <button class="quantity-button" onclick="changeQuantity(-1)" title="Decrease quantity"><img
+                  src="images/icon-minus.svg"></button>
+              <input name="quantity" id="quantity" title="quantity" placeholder="0" type="number" value="0">
+              <button class="quantity-button" onclick="changeQuantity(1)" title="Decrease quantity"><img
+                  src="images/icon-plus.svg"></button>
+            </div>
+            <button id="add-to-cart" onclick="addToCart()" class="btn-add-to-cart">
+              <img src="images/icon-cart.svg">
+              <span>Add to cart</span> </button>
+          </div>
+
+        </div>
+      </article>
+      <div class="cart-container" id="cart-container" onclick="hideCart()">
+        <div class="cart">
+          <h1 class="cart-title">Cart</h1>
+          <div class="cart-items">
+            <h3 id="empty-cart-message" class="empty-cart-message">Your cart is empty</h3>
+            <ul class="cart-items-list" id="cart-items-list">
+
+            </ul>
+          </div>
+          <div class="cart-checkout">
+
+            <button type="button" id="btn-checkout" class="btn-checkout">
+              Checkout
+            </button>
+            </sdiv>
+          </div>
+        </div>
+      </div>
+      <div class="lightbox-carousel visible" id="lightbox">
+        <div class="product-carousel">
+          <button class="close-lightbox" id="btn-close-lightbox" onclick="closeLightbox()">
+            <img src="images/icon-close.svg"/>
+          </button>
+          <div class="carousel-images-wrapper">
+            <img class="product-image current" src="images/image-product-1.jpg" alt="beige sneakers">
+            <img class="product-image" src="images/image-product-2.jpg" alt="beige sneakers">
+            <img class="product-image" src="images/image-product-3.jpg" alt="beige sneakers">
+            <img class="product-image" src="images/image-product-4.jpg" alt="beige sneakers">
+          </div>
+          <div class="image-thumbnails">
+            <img class="product-thumbnail current" src="images/image-product-1-thumbnail.jpg" alt="beige sneakers">
+            <img class="product-thumbnail" src="images/image-product-2-thumbnail.jpg" alt="beige sneakers">
+            <img class="product-thumbnail" src="images/image-product-3-thumbnail.jpg" alt="beige sneakers">
+            <img class="product-thumbnail" src="images/image-product-4-thumbnail.jpg" alt="beige sneakers">
+          </div>
+          <div class="controls-wrapper">
+            <button type="button" id="btn-prev-lightbox" class="switch-image prev" onclick="showPrevImage('lightbox')">
+              <img src="images/icon-previous.svg" alt="left chevron icon">
+            </button>
+            <button type="button" id="btn-next-lightbox" class="switch-image next" onclick="showNextImage('lightbox')">
+              <img src="images/icon-next.svg" alt="right chevron icon">
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://gatien-gnakou.netlify.app/">Gatien GNAKOU-EJDAMBO</a>.
     </div>
-  </main>
-
-
-
-
-
-
-
-
-
-
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="https://gatien-gnakou.netlify.app/">Gatien GNAKOU-EJDAMBO</a>.
   </div>
   <script src="scripts.js" type="text/javascript"></script>
 </body>
