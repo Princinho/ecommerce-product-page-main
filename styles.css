@@ -5,12 +5,13 @@
 }
 
 body {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
     font-family: 'Kumbh Sans', sans-serif;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 button{
     cursor: pointer;
@@ -68,9 +69,6 @@ nav .nav-inner-wrapper {
 nav a {
     text-decoration: none;
     display: inline-block;
-}
-
-nav a:visited {
     color: #222;
 }
 
@@ -97,11 +95,11 @@ nav ul {
     max-height: 600px;
 }
 .product-image{
-    height: 100%;
-    width: 0;
+    height: auto;
+    width: 100%;
     object-fit: cover;
     position: absolute;
-    transition: all .5s;
+    transition: all .8s;
     right: -100%;
 }
 .product-image.current{
@@ -321,12 +319,16 @@ nav ul {
     margin-bottom: 1.5rem;
     border-radius: .5rem;
 }
+.btn-add-to-cart:hover, .quantity-button:hover{
+    opacity: .6;
+}
 .empty-cart-message{
     text-align: center;
     margin-top: 80px;
     color: hsl(219, 9%, 45%);
 }
 @media(min-width:700px){
+   
     .close-nav{
         display: none;
     }
@@ -351,12 +353,50 @@ nav ul {
         margin-right: auto;
         z-index: 0;
     }
+    .product-image.current{
+        position: relative;
+    }
+    .nav-bar{
+        padding-block: 0;
+        border-bottom: 1px solid hsl(220, 14%, 75%);
+    }
     .logo{
         margin-right: 2rem;
     }
-   
+    .nav-link{
+        padding-block: 3rem;
+    }
+    .nav-link:hover{
+        padding-bottom: calc(3rem - 4px);
+        border-bottom: 4px solid hsl(26, 100%, 55%);
+    }
+    .image-thumbnails{
+        z-index: 15;
+        display: flex;
+        position: static;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        bottom: 0;
+        left: 0;;
+        gap: 5%;
+        justify-content: space-around;
+    }
+    .product-thumbnail{
+        max-width: 20%;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+    .product-thumbnail.current{
+        outline: 4px solid hsl(26, 100%, 55%);
+        opacity: .7;
+    }
+    .product-thumbnail:hover{
+        opacity: .7;
+    }
     main{
-        margin-top: 2rem;
+        min-height: 50vh;
+        margin-top: max(10vh,5rem);
+        /* margin-top: 2rem; */
         display: flex;
         padding-inline:1.5rem;
     }
@@ -364,6 +404,7 @@ nav ul {
         width: 50%;
         overflow: hidden;
         height: auto;
+        flex-direction: column;
         /* min-height: 50vh; */
     }
     .product-description{
@@ -382,7 +423,6 @@ nav ul {
     }
     .quantity-selector{
         padding:.5rem;
-        
     }
     [name="quantity"]{
         font-size: 1rem;

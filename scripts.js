@@ -2,12 +2,13 @@ const mainNav = document.getElementById('main-nav')
 const nextButton = document.getElementById('btn-next')
 const prevButton = document.getElementById('btn-prev')
 const images = [...document.querySelectorAll('.product-image')]
+const thumbnails = [...document.querySelectorAll('.product-thumbnail')]
 const quantityInput = document.getElementById('quantity')
 const cartContainer = document.getElementById('cart-container')
 const cartItemsList = document.getElementById('cart-items-list')
 const quantityTag = document.getElementById('quantity-tag')
-const checkoutBtn=document.getElementById('btn-checkout')
-const emptyCartMessage=document.getElementById('empty-cart-message')
+const checkoutBtn = document.getElementById('btn-checkout')
+const emptyCartMessage = document.getElementById('empty-cart-message')
 const productPrice = 250;
 const discountPercentage = 50;
 let currentImageIndex = 0
@@ -17,12 +18,39 @@ function toggleNav() {
     mainNav.classList.toggle('visible')
 }
 
+function setCurrentImage(index) {
+    images.map((image, imgIndex) => {
+        if (index < imgIndex) {
+            image.classList.add('viewed')
+        }
+        else {
+            image.classList.remove('viewed')
+        }
+        if (index === imgIndex) {
+            image.classList.add('current')
+        } else {
+            image.classList.remove('current')
+        }
+    })
+    thumbnails.map((thumb, imgIndex) => {
+        if (index === imgIndex) {
+            thumb.classList.add('current')
+        } else {
+            thumb.classList.remove('current')
+
+        }
+    })
+
+}
+
 function showNextImage() {
     //hide current image
     images[currentImageIndex].classList.remove('current')
     images[currentImageIndex].classList.add('viewed')
+    thumbnails[currentImageIndex].classList.remove('current')
     //display next image
     images[currentImageIndex + 1].classList.toggle('current')
+    thumbnails[currentImageIndex + 1].classList.toggle('current')
 
     currentImageIndex += 1
     updateButtonsState()
@@ -36,10 +64,12 @@ function addToCart() {
 function showPrevImage() {
     //hide current image
     images[currentImageIndex].classList.remove('current')
+    thumbnails[currentImageIndex].classList.remove('current')
     images[currentImageIndex - 1].classList.remove('viewed')
     // images[currentImageIndex].classList.toggle('viewed')
     //display next image
     images[currentImageIndex - 1].classList.add('current')
+    thumbnails[currentImageIndex - 1].classList.add('current')
 
 
     currentImageIndex -= 1
@@ -64,7 +94,7 @@ function removeItem(e) {
 }
 function render() {
     quantityInput.value = quantity
-    let discountedProductPrice=(productPrice * discountPercentage / 100)
+    let discountedProductPrice = (productPrice * discountPercentage / 100)
     let totalPrice = cartQuantity * discountedProductPrice
     let cartItemsHtml = ''
     if (cartQuantity > 0) {
@@ -75,15 +105,15 @@ function render() {
           <div class="cart-item-pricing-group">
             <span class="cart-item-price">
             ${discountedProductPrice.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              })}</span>
+            style: 'currency',
+            currency: 'USD',
+        })}</span>
             <span class="cart-item-quantity">x ${cartQuantity}</span>
             <span class="cart-item-total">
             ${totalPrice.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              })}</span>
+            style: 'currency',
+            currency: 'USD',
+        })}</span>
           </div>
         </div>
         <button onclick="removeItem(event)" class="cart-remove-item"><img src="images/icon-delete.svg"></button>
@@ -93,13 +123,13 @@ function render() {
     if (cartQuantity > 0) {
         quantityTag.textContent = cartQuantity
         quantityTag.style.display = 'inline'
-        checkoutBtn.style.display='inline-block'
-        emptyCartMessage.style.display='none'
+        checkoutBtn.style.display = 'inline-block'
+        emptyCartMessage.style.display = 'none'
     }
     else {
         quantityTag.style.display = 'none'
-        checkoutBtn.style.display='none'
-        emptyCartMessage.style.display='block'
+        checkoutBtn.style.display = 'none'
+        emptyCartMessage.style.display = 'block'
     }
 
 }
@@ -109,4 +139,10 @@ function showCart() {
 function hideCart() {
     cartContainer.classList.remove('visible')
 }
+thumbnails.map((thumb, index) => {
+    thumb.addEventListener('click', () => {
+        setCurrentImage(index)
+    })
+})
+
 render()
