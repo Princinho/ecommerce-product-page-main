@@ -19,7 +19,6 @@ body {
 button {
     cursor: pointer;
 }
-
 .nav-bar {
     display: flex;
     padding: 1.5rem;
@@ -35,8 +34,12 @@ button {
 }
 
 .nav-bar .avatar {
-    width: 1.5rem;
+    width: 2rem;
     margin-left: 1.5rem;
+}
+.nav-bar .avatar:hover{
+    outline: 2px solid hsl(26, 100%, 55%);
+    border-radius: 50%;
 }
 
 .logo {
@@ -100,15 +103,17 @@ nav ul {
     display: flex;
     position: relative;
     height: 100vw;
-    max-height: 600px;
+    max-height: 700px;
     overflow: hidden;
 }
 
-.carousel-images-wrapper {}
+.carousel-images-wrapper {
+    min-height: 550px;
+}
 
 .product-image {
     height: auto;
-    width: 100%;
+    width: 80%;
     object-fit: cover;
     position: absolute;
     transition: all .8s;

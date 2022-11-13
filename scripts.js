@@ -2,7 +2,7 @@ const mainNav = document.getElementById('main-nav')
 const nextButton = document.getElementById('btn-next')
 const prevButton = document.getElementById('btn-prev')
 const images = [...document.querySelectorAll('.main-carousel .product-image')]
-const thumbnails = [...document.querySelectorAll('.product-thumbnail')]
+const thumbnails = [...document.querySelectorAll('.main-carousel .product-thumbnail')]
 const quantityInput = document.getElementById('quantity')
 const cartContainer = document.getElementById('cart-container')
 const cartItemsList = document.getElementById('cart-items-list')
@@ -32,30 +32,55 @@ function toggleNav() {
 }
 
 function setCurrentImage(index) {
-    images.map((image, imgIndex) => {
-        if (imgIndex < index) {
-            image.classList.add('viewed')
-        }
-        else {
-            image.classList.remove('viewed')
-        }
-        if (index === imgIndex) {
-            image.classList.add('current')
-        } else {
-            image.classList.remove('current')
-        }
-    })
-    thumbnails.map((thumb, imgIndex) => {
-        if (index === imgIndex) {
-            thumb.classList.add('current')
-        } else {
-            thumb.classList.remove('current')
+    
+        lightboxImages.map((image, imgIndex) => {
+            if (imgIndex < index) {
+                image.classList.add('viewed')
+            }
+            else {
+                image.classList.remove('viewed')
+            }
+            if (index === imgIndex) {
+                image.classList.add('current')
+            } else {
+                image.classList.remove('current')
+            }
+        })
+        lightboxThumbnails.map((thumb, imgIndex) => {
+            if (index === imgIndex) {
+                thumb.classList.add('current')
+            } else {
+                thumb.classList.remove('current')
 
-        }
-    })
+            }
+        })
+
+    
+        images.map((image, imgIndex) => {
+            if (imgIndex < index) {
+                image.classList.add('viewed')
+            }
+            else {
+                image.classList.remove('viewed')
+            }
+            if (index === imgIndex) {
+                image.classList.add('current')
+            } else {
+                image.classList.remove('current')
+            }
+        })
+
+        thumbnails.map((thumb, imgIndex) => {
+            if (index === imgIndex) {
+                thumb.classList.add('current')
+            } else {
+                thumb.classList.remove('current')
+
+            }
+        })
+    
     currentImageIndex = index;
     updateButtonsState()
-
 }
 
 function showNextImage(target = '') {
@@ -67,13 +92,13 @@ function showNextImage(target = '') {
     images[currentImageIndex + 1].classList.toggle('current')
     thumbnails[currentImageIndex + 1].classList.toggle('current')
     // if (target) {
-        //hide current image
-        lightboxImages[currentImageIndex].classList.remove('current')
-        lightboxImages[currentImageIndex].classList.add('viewed')
-        lightboxThumbnails[currentImageIndex].classList.remove('current')
-        //display next image
-        lightboxImages[currentImageIndex + 1].classList.toggle('current')
-        lightboxThumbnails[currentImageIndex + 1].classList.toggle('current')
+    //hide current image
+    lightboxImages[currentImageIndex].classList.remove('current')
+    lightboxImages[currentImageIndex].classList.add('viewed')
+    lightboxThumbnails[currentImageIndex].classList.remove('current')
+    //display next image
+    lightboxImages[currentImageIndex + 1].classList.toggle('current')
+    lightboxThumbnails[currentImageIndex + 1].classList.toggle('current')
     // }
     currentImageIndex += 1
     updateButtonsState()
@@ -94,13 +119,13 @@ function showPrevImage(target = "") {
     images[currentImageIndex - 1].classList.add('current')
     thumbnails[currentImageIndex - 1].classList.add('current')
     // if (target) {
-        lightboxImages[currentImageIndex].classList.remove('current')
-        lightboxThumbnails[currentImageIndex].classList.remove('current')
-        lightboxImages[currentImageIndex - 1].classList.remove('viewed')
-        // images[currentImageIndex].classList.toggle('viewed')
-        //display next image
-        lightboxImages[currentImageIndex - 1].classList.add('current')
-        lightboxThumbnails[currentImageIndex - 1].classList.add('current')
+    lightboxImages[currentImageIndex].classList.remove('current')
+    lightboxThumbnails[currentImageIndex].classList.remove('current')
+    lightboxImages[currentImageIndex - 1].classList.remove('viewed')
+    // images[currentImageIndex].classList.toggle('viewed')
+    //display next image
+    lightboxImages[currentImageIndex - 1].classList.add('current')
+    lightboxThumbnails[currentImageIndex - 1].classList.add('current')
     // }
     currentImageIndex -= 1
     updateButtonsState()
@@ -175,10 +200,15 @@ function hideCart() {
 }
 thumbnails.map((thumb, index) => {
     thumb.addEventListener('click', () => {
-        setCurrentImage(index)
+        setCurrentImage(index > images.length - 1 ? index - images.length : index)
     })
 })
-function showLightbox(){
+lightboxThumbnails.map((thumb, index) => {
+    thumb.addEventListener('click', () => {
+        setCurrentImage(index > images.length - 1 ? index - images.length : index)
+    })
+})
+function showLightbox() {
     lightbox.classList.toggle('visible')
 
 }
